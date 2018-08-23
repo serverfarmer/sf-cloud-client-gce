@@ -22,11 +22,12 @@ instance="$(gcloud compute instances create $name \
 	--zone $GCE_REGION \
 	--machine-type $type \
 	--format json 2>/dev/null \
-	|/opt/farm/ext/cloud-client-gce/internal/parse-create.php)"
+	|/opt/farm/ext/cloud-client-gce/internal/parse-instances.php)"
 
-selfLink=`echo "$instance" |cut -f6 -d" "`
+id=`echo "$instance" |cut -f6 -d' '`
 
-gcloud compute instances add-metadata $selfLink \
+gcloud compute instances add-metadata $id \
+	--zone $GCE_REGION \
 	--metadata-from-file ssh-keys=/etc/local/.ssh/id_gce_$key.meta 2>/dev/null
 
 echo $instance

@@ -1,3 +1,8 @@
 #!/bin/sh
+. /etc/local/.cloud/gce/default.sh
 
-gcloud compute machine-types list
+if [ "$1" = "--full" ]; then
+	gcloud compute machine-types list |egrep "($GCE_REGION|DEPRECATED)"
+else
+	gcloud compute machine-types list |grep $GCE_REGION |awk '{ print $1 }'
+fi

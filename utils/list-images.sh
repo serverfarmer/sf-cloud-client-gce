@@ -1,3 +1,3 @@
 #!/bin/sh
 
-gcloud compute images list
+gcloud compute images list |grep -v windows-

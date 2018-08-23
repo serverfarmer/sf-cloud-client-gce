@@ -35,9 +35,9 @@ echo "#!/bin/sh
 export GCE_REGION=$REGION
 #
 # Ubuntu family and project (Cloud Farmer was tested with debian-8,
-# ubuntu-1404-lts and ubuntu-1604-lts):
+# ubuntu-1404-lts, ubuntu-1604-lts and ubuntu-1804-lts):
 #
-export GCE_FAMILY=ubuntu-1604-lts
+export GCE_FAMILY=ubuntu-1804-lts
 export GCE_PROJECT=ubuntu-os-cloud
 #
 # Default instance type to use, when type isn't explicitely specified
