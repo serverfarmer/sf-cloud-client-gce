@@ -1,11 +1,11 @@
 #!/bin/sh
 
-if [ "$1" = "" ]; then
-	echo "usage: $0 <ssh-key-name>"
+if [ "$2" = "" ]; then
+	echo "usage: $0 <unused> <ssh-key-name>"
 	exit 1
 fi
 
-name=$1
+name=$2
 key=/etc/local/.ssh/id_gce_$name
 
 if [ -f $name ] || [ -f $key ]; then
