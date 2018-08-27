@@ -16,8 +16,10 @@ else
 	type=$GCE_DEFAULT_INSTANCE_TYPE
 fi
 
+osver=`/opt/farm/ext/cloud-client-gce/utils/get-ubuntu-image.sh`
+
 instance="$(gcloud compute instances create $name \
-	--image-family $GCE_FAMILY \
+	--image-family $osver \
 	--image-project $GCE_PROJECT \
 	--zone $GCE_REGION \
 	--machine-type $type \

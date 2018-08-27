@@ -1,4 +1,9 @@
 #!/bin/sh
-. /etc/local/.cloud/gce/default.sh
 
-/opt/farm/ext/cloud-client-gce/utils/list-images.sh |grep $GCE_PROJECT |grep $GCE_FAMILY |awk '{ print $1 }'
+# Cloud Farmer was tested with:
+#  - debian-8
+#  - ubuntu-1404-lts
+#  - ubuntu-1604-lts
+#  - ubuntu-1804-lts
+
+echo "ubuntu-1804-lts"
