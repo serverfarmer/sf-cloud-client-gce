@@ -1,6 +1,11 @@
 #!/bin/bash
 . /opt/farm/scripts/functions.dialog
 
+if [ "$1" != "default" ]; then
+	echo "error: multiple accounts are not supported by Google Cloud provider"
+	exit 1
+fi
+
 if [ "`which gcloud 2>/dev/null`" = "" ]; then
 	if [ -f '/root/google-cloud-sdk/path.bash.inc' ]; then . '/root/google-cloud-sdk/path.bash.inc'; fi
 	if [ -f '/root/google-cloud-sdk/completion.bash.inc' ]; then . '/root/google-cloud-sdk/completion.bash.inc'; fi
